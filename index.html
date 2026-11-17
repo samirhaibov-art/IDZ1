@@ -1,149 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота №1 — Варіант 2</title>
+    <meta name="description" content="Гра Шибениця — вгадай загадане слово!">
+    <title>Гра Шибениця</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header>
-        <h1>Лабораторна робота №1. HTML</h1>
+    <main class="game-container">
+        <header class="game-header">
+            <h1>Гра «Шибениця»</h1>
+            <p>Вгадай загадане слово, поки не закінчилися спроби!</p>
+        </header>
 
-        <nav>
-            <h2>Зміст</h2>
-            <ul>
-                <li><a href="#text">Оформлений текст</a></li>
-                <li><a href="#list">Розподіл навчальних груп</a></li>
-                <li><a href="#weather">Прогноз погоди</a></li>
-                <li><a href="#search">Форма пошуку</a></li>
-                <li><a href="second.html">Інша сторінка сайту</a></li>
-            </ul>
-        </nav>
-    </header>
+        <section class="game-content">
 
-    <main>
+            <div class="hangman-section">
+                <svg class="hangman-drawing"
+                     viewBox="0 0 250 280"
+                     role="img"
+                     aria-label="Малюнок шибениці">
 
-        <!-- Оформлений текст -->
-        <section id="text">
-            <h2>Оформлений текст</h2>
+                    <line x1="20" y1="260" x2="230" y2="260" class="gallows-part"/>
+                    <line x1="65" y1="260" x2="65" y2="20" class="gallows-part"/>
+                    <line x1="65" y1="20" x2="170" y2="20" class="gallows-part"/>
+                    <line x1="170" y1="20" x2="170" y2="55" class="gallows-part"/>
 
-            <p>
-                Хімічна реакція
-                <b>ортофосфорної кислоти</b>:
-                P<sub>2</sub>O<sub>5</sub> +
-                3H<sub>2</sub>O &rarr;
-                2H<sub>3</sub>PO<sub>4</sub>
-            </p>
+                    <circle cx="170" cy="80" r="25" class="body-part head"/>
+                    <line x1="170" y1="105" x2="170" y2="175" class="body-part"/>
+                    <line x1="170" y1="125" x2="135" y2="150" class="body-part"/>
+                    <line x1="170" y1="125" x2="205" y2="150" class="body-part"/>
+                    <line x1="170" y1="175" x2="140" y2="215" class="body-part"/>
+                    <line x1="170" y1="175" x2="200" y2="215" class="body-part"/>
+                </svg>
+            </div>
+
+            <div class="game-info">
+
+                <div class="word-container">
+                    <h2>Загадане слово</h2>
+                    <div id="word-display" class="word-display"></div>
+                </div>
+
+                <div class="attempts-container">
+                    <p>Залишилося спроб: <span id="attempts">6</span></p>
+                </div>
+
+                <div class="keyboard-container">
+                    <h2>Оберіть літеру</h2>
+                    <div id="keyboard" class="keyboard"></div>
+                </div>
+
+                <div id="message" class="message" aria-live="polite">
+                    Удачі! Спробуй вгадати слово.
+                </div>
+
+                <button id="restart-button" class="restart-button">
+                    Нова гра
+                </button>
+
+            </div>
         </section>
 
-        <!-- Двохрівневий список навчальних груп -->
-        <section id="list">
-            <h2>Розподіл навчальних груп</h2>
-
-            <ul>
-                <li>Спеціальність КІУКІ
-                    <ul>
-                        <li>КІУКІ-24-1</li>
-                        <li>КІУКІ-24-2</li>
-                        <li>КІУКІу-25-1</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Таблиця прогнозу погоди -->
-        <section id="weather">
-            <h2>Прогноз погоди</h2>
-
-            <table border="1">
-                <caption>Прогноз погоди на тиждень</caption>
-
-                <thead>
-                    <tr>
-                        <th>День</th>
-                        <th>Температура</th>
-                        <th>Погодні умови</th>
-                        <th>Опади</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Понеділок</td>
-                        <td>+18 °C</td>
-                        <td>Сонячно</td>
-                        <td>Немає</td>
-                    </tr>
-
-                    <tr>
-                        <td>Вівторок</td>
-                        <td>+20 °C</td>
-                        <td>Мінлива хмарність</td>
-                        <td>Немає</td>
-                    </tr>
-
-                    <tr>
-                        <td>Середа</td>
-                        <td>+16 °C</td>
-                        <td>Хмарно</td>
-                        <td>Можливий дощ</td>
-                    </tr>
-
-                    <tr>
-                        <td>Четвер</td>
-                        <td>+17 °C</td>
-                        <td>Хмарно</td>
-                        <td>Дощ</td>
-                    </tr>
-
-                    <tr>
-                        <td>П'ятниця</td>
-                        <td>+21 °C</td>
-                        <td>Сонячно</td>
-                        <td>Немає</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Форма пошуку -->
-        <section id="search">
-            <h2>Форма пошуку</h2>
-
-            <form action="second.html" method="get">
-                <label for="query">Введіть пошуковий запит:</label>
-
-                <input
-                    type="search"
-                    id="query"
-                    name="query"
-                    placeholder="Що шукаємо?"
-                    required
-                >
-
-                <button type="submit">Шукати</button>
-            </form>
-        </section>
-<img src="picture.jpg" alt="Моя картина" width="300">
-
-        <!-- Гіперпосилання -->
-        <section id="links">
-            <h2>Посилання</h2>
-
-            <p>
-                <a href="second.html">
-                    Перейти на іншу сторінку цього ресурсу
-                </a>
-            </p>
-        </section>
+        <footer class="game-footer">
+            <p>Індивідуальне домашнє завдання №1</p>
+        </footer>
 
     </main>
-
-    <footer>
-        <p>Лабораторна робота №1. Варіант 2.</p>
-    </footer>
 
 </body>
 </html>
